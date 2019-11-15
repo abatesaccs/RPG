@@ -6,6 +6,7 @@ export class RPG
     this.hp = hp,
     this.dmg = dmg,
     this.lvl = lvl,
+    this.xp = 0,
     this.inv = [];
   }
   win(){
@@ -36,7 +37,12 @@ export class RPG
   fight(guy)
   {
     if (this.dmg >= guy.hp) {
-      this.lvlUp();
+      if (guy.lv == 1) {
+        this.xp += (guy.lvl * 5);
+      }
+      if (this.xp >= (guy.lvl * 50)) {
+        this.lvlUp();
+      }
       return this.win();
     } else {
       return this.lose();
