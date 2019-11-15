@@ -27,4 +27,18 @@ describe ('RPG', () => {
     range.fight(bot);
     expect(range.lvl).toEqual(1);
   });
+  test ('Should check if items effect stats properly', ()=>
+  {
+    let range = new RPG("Bounty Hunter", 10, 3, 1);
+    let pGlove = ["dmg", 5];
+    range.equip(pGlove);
+    expect(range.dmg).toEqual(8);
+  });
+  test ('Should check if items effect stats properly', ()=>
+  {
+    let range = new RPG("Bounty Hunter", 10, 3, 1);
+    let jacket = ["hp", 5];
+    range.equip(jacket);
+    expect(range.hp).toEqual(15);
+  });
 });

@@ -6,8 +6,7 @@ export class RPG
     this.hp = hp,
     this.dmg = dmg,
     this.lvl = lvl,
-    let inv = [];
-    this.inv = inv;
+    this.inv = [];
   }
   win(){
     return this.name + ": Chicken Dinner";
@@ -17,7 +16,6 @@ export class RPG
   }
   lvlUp(){
     this.lvl++;
-    console.log('ayyy lmao');
   }
   randEnemy(){
     var enemy = [];
@@ -26,14 +24,23 @@ export class RPG
     enemy[3] = (Math.ceil(Math.random() * 2));
     return enemy;
   }
+  equip(item){
+    if (item[0] == "hp") {
+      this.hp += item[1];
+    } else if (item[0] == "dmg") {
+      this.dmg += item[1];
+    } else if (item[0] == "lvl") {
+      this.lvl += item[1];
+    }
+  }
   fight(guy)
   {
     if (this.dmg >= guy.hp) {
       this.lvlUp();
-      console.log(this.lvl);
       return this.win();
     } else {
       return this.lose();
     }
   }
+
 }
